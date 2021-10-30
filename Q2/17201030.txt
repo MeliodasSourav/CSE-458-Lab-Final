@@ -1,0 +1,25 @@
+// DSCH 2.7f
+// 10/30/2021 12:33:13 PM
+// C:\Users\Gastly\Desktop\Lab Final\Q2\17201030.sch
+
+module 17201030( D,A,B,C,out2);
+ input D,A,B,C;
+ output out2;
+ and #(16) and(w3,B,w2);
+ or #(16) or(w5,w3,C);
+ and #(16) and(w7,D,w5);
+ not #(10) inv(out2,w7);
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 D=~D;
+#2000 A=~A;
+#4000 B=~B;
+#8000 C=~C;
+
+// Simulation parameters
+// D CLK 10 10
+// A CLK 20 20
+// B CLK 40 40
+// C CLK 80 80
